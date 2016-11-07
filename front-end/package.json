@@ -1,7 +1,9 @@
 {
   "name": "myMessageFront",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "gulp-eslint": "^1.0.0"
+  },
   "scripts": {
     "test": "gulp test"
   },
