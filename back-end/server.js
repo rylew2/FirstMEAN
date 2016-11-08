@@ -19,6 +19,9 @@ app.post('/api/message', function (req, res) {
 mongo.connect("mongodb://localhost:27017/test", function (err, db) {
     if (!err) {
         console.log("we're connected to mongo!");
+
+        db.collection('messages').insertOne({ 'msg': 'test' });
+
     }
 })
 
