@@ -18,6 +18,8 @@ app.use(function (req, res, next) {
     next();
 })
 
+app.get('/api/message', GetMessages)
+
 app.post('/api/message', function (req, res) {
     console.log(req.body);
     //database.collection('messages').insertOne(req.body);
@@ -29,7 +31,8 @@ app.post('/api/message', function (req, res) {
 
 mongoose.connect("mongodb://localhost:27017/test", function (err, db) {
     if (!err) {
-        console.log("we are connected to mongo");
+        console.log("we are connected to mongo!!");
+     //   GetMessage(); //when connected - display all messages
         //database = db;
     }
 })
@@ -38,8 +41,9 @@ var server = app.listen(5000, function () {
     console.log('listening on port ', server.address().port)
 })
 
-function GetMessage() {
-    Messages.find({}).exec(function (err, result) {
-        console.log(result);
+function GetMessages(req, res) {
+    Message.find({}).exec(function (err, result) {
+        // console.log(result);
+        res.send(result);
     })
 }
