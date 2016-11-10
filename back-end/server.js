@@ -12,6 +12,7 @@ var Message = mongoose.model('Message', {
 
 app.use(bodyParser.json());
 
+
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
@@ -25,7 +26,6 @@ app.post('/api/message', function (req, res) {
     //database.collection('messages').insertOne(req.body);
     var message = new Message(req.body);
     message.save();
-
     res.status(200);
 })
 
